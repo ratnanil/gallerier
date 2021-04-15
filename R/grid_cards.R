@@ -56,7 +56,8 @@ cards_grid <- function(df,
     # save css to file
     sass(
       style,
-      output = css_file
+      output = css_file,
+      cache = FALSE
     )
     
   }

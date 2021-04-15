@@ -73,7 +73,8 @@ card <- function(title,
     # save css to file
     sass(
       style,
-      output = css_file
+      output = css_file,
+      cache = FALSE
     )
     
   }
