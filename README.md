@@ -14,7 +14,7 @@ The package is under heavy development. The `lightbox` gallery is fully function
 You can install the latest version of gallerier from [Github](https://github.com/mrjoh3/gallerier) with:
 
 ``` r
-devtools::install_github('mrjoh3/gallerier)
+devtools::install_github('mrjoh3/gallerier')
 ```
 
 ## Example
