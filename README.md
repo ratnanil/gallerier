@@ -21,7 +21,7 @@ devtools::install_github('mrjoh3/gallerier)
 
 This is a basic example which shows you how to solve a common problem:
 
-``` r
+```r
 library(gallerier)
 
 images <- data.frame(src = list.files('www/img')) %>%

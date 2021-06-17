@@ -4,6 +4,8 @@
 #' @param df data.frame containing
 #' @param gallery character label identifying gallery
 #' @param css character file path to css file. If missing default style is used
+#' @param path character folder path, sometimes some frameworks like shiny and 
+#' blogdown can look for files in a specific location. 
 #' @param width integer thumbnail image size in pixels
 #' @param display character 
 #'
@@ -16,7 +18,7 @@
 #' @export
 #'
 #' @examples
-lightbox_gallery <- function(df, gallery, css, width = 80, display = 'block'){
+lightbox_gallery <- function(df, gallery, css, path = '', width = 80, display = 'block'){
   
   dir.create('www')
   
@@ -41,11 +43,11 @@ lightbox_gallery <- function(df, gallery, css, width = 80, display = 'block'){
                             lapply(seq_len(nrow(df)), function(i){
                               tags$div(`data-type`="template", class = 'card',
                                        tags$a(id = df$uid[i],
-                                              href = paste0('img/', df$src[i]),
+                                              href = paste0(path, df$src[i]),
                                               `data-lightbox` = gallery, # this identifies gallery group
                                               `data-title` = glue_collapse(df[i,], sep = ' - '), # this is where complex title (glue) added
                                               tags$img(class = 'card-img-top',
-                                                       src = paste0("img/", df$src[i]),
+                                                       src = paste0(path, df$src[i]),
                                                        width = glue('{width}px'),
                                                        height = 'auto'))
                                        )
