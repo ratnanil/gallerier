@@ -14,5 +14,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Imports: 
     magrittr
+    hashids
 URL: https://github.com/mrjoh3/gallerier
 BugReports: https://github.com/mrjoh3/gallerier/issues
