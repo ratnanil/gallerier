@@ -26,9 +26,9 @@ lightbox_gallery <- function(df, gallery, css, path = '', width = 80, display = 
     css <- file.path(system.file('css', package = 'gallerier'), 
                     "styles.css")
   }
-  if (!(dir.exists('www/lightbox-2.10.0'))) {
-    fs::dir_copy(system.file('js/lightbox-2.10.0', package = 'gallerier'), 
-                 'www/lightbox-2.10.0')
+  if (!(dir.exists('www/lightbox-2-2.11.3'))) {
+    fs::dir_copy(system.file('js/lightbox-2-2.11.3', package = 'gallerier'), 
+                 'www/lightbox-2-2.11.3')
   }
   
   # ensure all required columns exist in df
@@ -37,7 +37,7 @@ lightbox_gallery <- function(df, gallery, css, path = '', width = 80, display = 
   
   tags$div(style = sprintf('display: %s;', display),
            tagList(tags$head(
-                     tags$link(rel = "stylesheet", type = "text/css", href = "lightbox-2.10.0/lightbox.min.css")
+                     tags$link(rel = "stylesheet", type = "text/css", href = "www/lightbox-2-2.11.3/css/lightbox.min.css")
                    ),
                    tags$div(class = 'card-deck',
                             lapply(seq_len(nrow(df)), function(i){
@@ -53,8 +53,19 @@ lightbox_gallery <- function(df, gallery, css, path = '', width = 80, display = 
                                        )
                             })
                    ),
-                   includeScript("www/lightbox-2.10.0/lightbox.min.js"),
+                   includeScript("www/lightbox-2-2.11.3/js/lightbox.min.js"),
                    includeCSS(css)
            ))
   
+}
+
+
+#' Lightbox Dependancies
+#'
+#' @return
+#'
+#' @examples
+lightbox_rmd <- function(){
+  cat('<link rel="stylesheet" href="www/lightbox-2-2.11.3/css/lightbox.min.css">\n',
+      '<script src="www/lightbox-2-2.11.3/js/lightbox.min.js"></script>')
 }
